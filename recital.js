@@ -13,3 +13,8 @@ document.querySelectorAll('.play-video').forEach((button) => {
     frame.focus();
   });
 });
+
+const programNav = document.querySelector('.recital-index');
+if (programNav && 'ResizeObserver' in window) {
+  new ResizeObserver(() => { document.documentElement.style.setProperty('--pm-nav-height', (getComputedStyle(programNav).position === 'sticky' ? programNav.getBoundingClientRect().height : 0) + 'px'); }).observe(programNav);
+}
